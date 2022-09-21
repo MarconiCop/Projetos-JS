@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script> 
+
+    //  HOISTING
+
+        //  var x (É criado aqui por ser var)
+        //  var é global e local
+
+            console.log(x) //   Encontra X pois var é global (Hoisting)
+                          
+            
+      {
+        //  BLOCO (ESCOPO)
+
+         var x = 0 //Teste com let e const (Só funciona no escopo)
+            
+      }
+
+      console.log(x) //Só encontrará o valor de var. 
+
+            
+        
+    </script>
+    
+</body>
+</html>
