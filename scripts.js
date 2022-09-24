@@ -1,19 +1,27 @@
-// ARRAY COMMANDS
+//  EXPRESSIONS AND OPERATORS
 
-let techs = ["html","css","js"]
+let number = 1
 
-techs.push("nodejs") //ADICIONA UM ITEM NO FIM
-techs.unshift("sql") //ADICIONA NO COMEÇO
-techs.pop() //REMOVE O ÚLTIMO
-techs.shift() //REMOVE O PRIMEIRO
+console.log(number + 1) //BINARY
+console.log(++number)   //UNARY
+console.log(true ? "alo" : "nada") //TERNARY
 
-console.log(techs.slice(1, 3)) //SELECIONA ELEMENTOS CORTANDO
 
-techs.splice(1, 1) //REMOVE ELEMENTOS ESPECIFICOS (INDEX, QUANTIDADE A PARTIR DO INDEX)
+// NEW
 
-//ENCONTRAR POSIÇÃO
+let name = new String("Marconi")
+name.surName = "Copati"
+let age = new Number(22)
+let date = new Date() //PODE COLOCAR DATA COMO ARGUMENTO
+console.log(name, age, date)
 
-let index = techs.indexOf("js")
-console.log(index)
+//  UNARY - DELETE
 
-console.log(techs)
+const person = {
+    name: "Marconi",
+    age: 22,
+}
+
+delete person.age
+
+console.log(person)
