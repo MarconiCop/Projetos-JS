@@ -4,31 +4,44 @@
 
 function transformNumbertoLetter(note = []){
 
+    
+
     for(position = 0; position < note.length; position++){
-        if(note[position] >= 90){
-            note[position] = "A"
+
+        noteTypeA = note[position] >= 90 && note[position] <= 100
+        noteTypeB = note[position] >= 80 && note[position] <= 89
+        noteTypeC = note[position] >= 70 && note[position] <= 79
+        noteTypeD = note[position] >= 60 && note[position] <= 69
+        noteTypeF = note[position] < 60 && note[position] >= 0
+
+        if(noteTypeA){
+        note[position] = "A"
+        
         }
-        else if (note[position] >= 80 && note[position] <= 89){
+        else if (noteTypeB){
         note[position] = "B"
 
         }
-        else if(note[position] >= 70 && note[position] <= 79){
+        else if(noteTypeC){
         note[position] = "C"
 
         }
-        else if(note[position] >= 60 && note[position] <= 69){
+        else if(noteTypeD){
         note[position] = "D"
 
-        } else {
+        } else if(noteTypeF) {
         note[position] = "F"
         }
-    
+        else{
+            note[position] = "Nota Inválida"
+        }
+            
     }
 
     return note;
 }
 
-let note = [59,60,70,80,91,100]
+let note = [59,10,70,80,91,100]
 
 console.log(note)
 console.log(transformNumbertoLetter(note))
