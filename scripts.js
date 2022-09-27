@@ -1,48 +1,34 @@
-// ESTRUTURAS DE REPETIÇÃO
+// EXERCÍCIOS FINAIS
 
-//  FOR
+//  SISTEMAS DE NOTAS ESCOLARES 
 
-for(let i = 1; i<=10; i++){
-    if(i == 5){
-        continue; // pula a execução do momento
-        // break; -> sai do loop
+function transformNumbertoLetter(note = []){
+
+    for(position = 0; position < note.length; position++){
+        if(note[position] >= 90){
+            note[position] = "A"
+        }
+        else if (note[position] >= 80 && note[position] <= 89){
+        note[position] = "B"
+
+        }
+        else if(note[position] >= 70 && note[position] <= 79){
+        note[position] = "C"
+
+        }
+        else if(note[position] >= 60 && note[position] <= 69){
+        note[position] = "D"
+
+        } else {
+        note[position] = "F"
+        }
+    
     }
-    console.log(i)
 
-
+    return note;
 }
 
-//  WHILE (Quando não sabe-se o momento da parada)
+let note = [59,60,70,80,91,100]
 
-let j = 100000000
-
-while(j > 10){
-    console.log(j)
-    j /= 10
-}
-
-//  FOR OF
-
-let name = "Marconi"
-let names = ["João","Paulo","Pedro"]
-
-for (let char of name){
-    console.log(char)
-}
-
-for (let name of names){
-    console.log(name)
-}
-
-// FOR IN (Para objetos)
-
-let person = {
-    name: "Marconi",
-    age: 22,
-    weight: 70.1
-}
-
-for (let property in person){
-    console.log(property)
-    console.log(person[property])
-}
+console.log(note)
+console.log(transformNumbertoLetter(note))
