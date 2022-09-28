@@ -54,34 +54,50 @@ let spending = {
     expenses: [],
 }
 
-
 let addIncome = 10
 let addExpense = 20
-
-let sumIncome = 0
-let sumExpense = 0
-
 let balance = 0
 
-spending.income.push(addIncome)
-spending.expenses.push(addExpense)
+addSpending(addIncome,addExpense)
 
-for (var position = 0; position < spending.income.length; position++){
-    sumIncome += spending.income[position]
-}
-for (var position = 0; position < spending.expenses.length; position++){
-    sumExpense += spending.expenses[position]
+function addSpending(incomes, expenses){
+    spending.income.push(addIncome)
+    spending.expenses.push(addExpense)
 }
 
-balance = (sumIncome - sumExpense).toFixed(2)
+function sumSpending(array){
 
-if(balance >= 0){
-    console.log("A família está com saldo positivo!")
-    console.log(`Saldo: R$${balance}`)
-}else{
-    console.log("A família está com saldo negativo!")
-    console.log(`Saldo: R$${balance}`)
+    let total = 0
+
+    for(let value of array){
+        total += value
+
+    }
+
+    return total   
 }
+
+function calculateBalance(){
+    
+    let balance = (sumSpending(spending.income) - sumSpending(spending.expenses)).toFixed(2)
+    let balancePositive = balance >= 0
+    
+    if(balancePositive){
+        console.log("A família está com saldo positivo!")
+        console.log(`Saldo: R$:${balance}`)
+    }else{
+        console.log("A família está com saldo negativo!")
+        console.log(`Saldo: R$:${balance}`)
+    }
+}
+
+calculateBalance()
+
+
+
+
+
+
 
 
 
