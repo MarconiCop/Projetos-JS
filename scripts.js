@@ -45,3 +45,45 @@ let note = [59,10,70,80,91,100]
 
 console.log(note)
 console.log(transformNumbertoLetter(note))
+
+
+// SISTEMAS DE GASTOS FAMILIAR
+
+let spending = {
+    income: [],
+    expenses: [],
+}
+
+
+let addIncome = 10
+let addExpense = 20
+
+let sumIncome = 0
+let sumExpense = 0
+
+let balance = 0
+
+spending.income.push(addIncome)
+spending.expenses.push(addExpense)
+
+for (var position = 0; position < spending.income.length; position++){
+    sumIncome += spending.income[position]
+}
+for (var position = 0; position < spending.expenses.length; position++){
+    sumExpense += spending.expenses[position]
+}
+
+balance = (sumIncome - sumExpense).toFixed(2)
+
+if(balance >= 0){
+    console.log("A família está com saldo positivo!")
+    console.log(`Saldo: R$${balance}`)
+}else{
+    console.log("A família está com saldo negativo!")
+    console.log(`Saldo: R$${balance}`)
+}
+
+
+
+
+
