@@ -97,24 +97,44 @@ calculateBalance()
 //  SISTEMA DE TEMPERATURAS
 
 
-let temperature = "-40"
-
-convertTemperatures(temperature)
-
 function convertTemperatures(stringTemperature){
 
-    stringTemperatureToNumber = Number(stringTemperature)
+    const celsiusExists = stringTemperature.toUpperCase().includes("C")
+    const fahrenheitExists = stringTemperature.toUpperCase().includes("F")
 
-    celciusTemperature = (stringTemperatureToNumber - 32) * 5 / 9
-    fahrenheitTemperature = stringTemperatureToNumber * 9 / 5 + 32
-    
-    console.log(`${stringTemperature}ºC -> ${fahrenheitTemperature.toFixed(1)}ºF `)
-    console.log(`${stringTemperature}ºF -> ${celciusTemperature.toFixed(1)}ºC`)
-        
-    
+    if(!celsiusExists && !fahrenheitExists){
+        throw new Error("Unidade Inválida")
+    }
+
+    let updatedTemperature = Number(stringTemperature.toUpperCase().replace("ºF",""))
+    let formula = (fahrenheit) => (fahrenheit - 32) * 5/9
+    let TemperatureSign = "ºC"
+
+    if(celsiusExists){
+        updatedTemperature = Number(stringTemperature.toUpperCase().replace("ºC",""))
+        formula = (celcius) => celcius * 9/5 + 32
+        TemperatureSign = "ºF"
+
+    }
 
 
+    return formula(updatedTemperature) + TemperatureSign
 }
+
+try{
+
+let temperature = "10ºC"
+console.log(convertTemperatures(temperature))
+
+}catch(error){
+    console.log(error.message)
+}
+
+
+
+
+
+
 
 
 
