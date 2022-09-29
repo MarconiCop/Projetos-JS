@@ -94,6 +94,28 @@ function calculateBalance(){
 calculateBalance()
 
 
+//  SISTEMA DE TEMPERATURAS
+
+
+let temperature = "-40"
+
+convertTemperatures(temperature)
+
+function convertTemperatures(stringTemperature){
+
+    stringTemperatureToNumber = Number(stringTemperature)
+
+    celciusTemperature = (stringTemperatureToNumber - 32) * 5 / 9
+    fahrenheitTemperature = stringTemperatureToNumber * 9 / 5 + 32
+    
+    console.log(`${stringTemperature}ºC -> ${fahrenheitTemperature.toFixed(1)}ºF `)
+    console.log(`${stringTemperature}ºF -> ${celciusTemperature.toFixed(1)}ºC`)
+        
+    
+
+
+}
+
 
 
 
