@@ -195,27 +195,19 @@ function numberOfBooksByCategory(booksByCategory){
 function authorsNumber(booksByCategory){
 
     let numberAuthor = 0
-    listAuthor = []
+    let listAuthor = []
    
 
     for(let object of booksByCategory){
 
-        for(let position in object.books){
+        for(let position of object.books){
 
-            listAuthor.push(object.books[position].author)
-        }
-    }
+            if(listAuthor.indexOf(position.author) == -1){
 
-    for(let i = 0; i < listAuthor.length; i++){
-        for(let j = 0; j < listAuthor.length; j++){
-
-            if(i != j){
-                if(listAuthor[i] === listAuthor[j]){
-                    listAuthor.splice(i,1)
-                }
+                listAuthor.push(position.author)
 
             }
-            
+
         }
     }
 
@@ -230,11 +222,11 @@ function showBooksofAugusto(booksByCategory, authorName){
 
     for(let object of booksByCategory){
 
-        for(let position in object.books){
+        for(let position of object.books){
 
-         if(object.books[position].author === authorName){
+         if(position.author === authorName){
 
-            console.log(`${object.books[position].title} -${object.books[position.author]}`)
+            console.log(`${position.title} - ${position.author}`)
             
          }
         }
@@ -245,11 +237,10 @@ function showBooksofAugusto(booksByCategory, authorName){
 
     
 
-
 calculateCategoryNumber(booksByCategory)
 numberOfBooksByCategory(booksByCategory)
 authorsNumber(booksByCategory)
-authorName = "Stephen R. Covey"
+authorName = "Augusto Cury"
 showBooksofAugusto(booksByCategory, authorName)
 
 
