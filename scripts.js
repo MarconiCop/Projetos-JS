@@ -128,7 +128,135 @@ console.log(convertTemperatures(temperature))
 
 }catch(error){
     console.log(error.message)
+    
 }
+
+//  SISTEMA DE BIBLIOTECA
+
+const booksByCategory = [
+    {
+        category: "Riqueza",
+        books: [
+            {
+                title: "Os segredos da mente milionária",
+                author: "T. Harv Eker",
+            },
+            {
+                title: "O homem mais rico da Babilônia",
+                author: "George S. Clason",
+            },
+            {
+                title: "Pai rico, pai pobre",
+                author: "Robert T. Kiyosaki e Sharon L. Lechter",
+            },
+        ],
+    },
+    {
+        category: "Inteligência Emocional",
+        books: [
+            {
+                title: "Você é Insubstituível",
+                author: "Augusto Cury",
+            },
+            {
+                title: "Ansiedade – Como enfrentar o mal do século",
+                author: "Augusto Cury",
+            },
+            {
+                title: "Os 7 hábitos das pessoas altamente eficazes",
+                author: "Stephen R. Covey",
+            },
+        ],
+    },
+];
+
+
+function calculateCategoryNumber(booksByCategory){
+
+    let categoryNumber = 0
+    
+    for(let object of booksByCategory){
+         categoryNumber++
+    }
+
+    return console.log(`Há ${categoryNumber} categorias`)
+}
+
+function numberOfBooksByCategory(booksByCategory){
+    
+    for(let object of booksByCategory){
+        
+        console.log(`Há ${object.books.length} livros na categoria ${object.category}`)
+       
+    }
+    
+}
+
+function authorsNumber(booksByCategory){
+
+    let numberAuthor = 0
+    listAuthor = []
+   
+
+    for(let object of booksByCategory){
+
+        for(let position in object.books){
+
+            listAuthor.push(object.books[position].author)
+        }
+    }
+
+    for(let i = 0; i < listAuthor.length; i++){
+        for(let j = 0; j < listAuthor.length; j++){
+
+            if(i != j){
+                if(listAuthor[i] === listAuthor[j]){
+                    listAuthor.splice(i,1)
+                }
+
+            }
+            
+        }
+    }
+
+    numberAuthor = listAuthor.length
+
+    return console.log(`Há ${numberAuthor} autores.`)
+            
+}
+
+function showBooksofAugusto(booksByCategory, authorName){
+
+
+    for(let object of booksByCategory){
+
+        for(let position in object.books){
+
+         if(object.books[position].author === authorName){
+
+            console.log(`${object.books[position].title} -${object.books[position.author]}`)
+            
+         }
+        }
+    }
+    
+
+}
+
+    
+
+
+calculateCategoryNumber(booksByCategory)
+numberOfBooksByCategory(booksByCategory)
+authorsNumber(booksByCategory)
+authorName = "Stephen R. Covey"
+showBooksofAugusto(booksByCategory, authorName)
+
+
+
+
+
+
 
 
 
